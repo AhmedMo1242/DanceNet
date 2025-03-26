@@ -1,0 +1,29 @@
+# Configuration for Dance-to-Text inference
+
+# Model configurations
+models:
+  # Model paths
+  vae_model: "checkpoints/dance_vae/best_model.pth"
+  projector_model: "checkpoints/contrastive/best_projectors.pt"
+  text_decoder_model: "checkpoints/dance_to_text/dance_to_text_decoder.pth"
+  
+  # Model parameters
+  bert_model_name: "bert-base-uncased"
+  n_joints: 50
+  n_dims: 3
+  hidden_dim: 384
+  latent_dim: 256
+  projection_hidden_dim: 256
+  projection_output_dim: 256
+  decoder_hidden_dim: 512
+
+# Data settings
+data:
+  texts_file: "data/vocabulary/dance_vocabulary.json"
+
+# Inference settings
+inference:
+  top_k: 3
+  batch_size: 8
+  device: "cuda"  # or "cpu"
+  sample_index: -1  # -1 to process all sequences

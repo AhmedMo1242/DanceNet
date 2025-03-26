@@ -1,0 +1,40 @@
+# Contrastive projection training configuration
+
+# Data settings
+data:
+  train_path: "data/train_data.npy"
+  val_path: "data/val_data.npy"
+  test_path: "data/test_data.npy"
+  dance_embedding_idx: 1
+  text_embedding_idx: 4
+  output_dance_embedding_idx: 5
+  output_text_embedding_idx: 6
+  batch_size: 32
+  num_workers: 2
+
+# Model settings
+model:
+  input_dim: 256
+  hidden_dim: 256
+  output_dim: 256
+  dance_projector_dropout: 0.1
+  text_projector_dropout: 0.1
+  
+# Loss settings
+loss:
+  temperature: 0.5
+  margin: 1.0
+  use_class_weights: true
+
+# Training settings
+training:
+  epochs: 200
+  learning_rate: 0.00005
+  weight_decay: 0.0001
+  momentum: 0.9
+  patience: 20
+  scheduler_step_size: 50
+  scheduler_gamma: 0.5
+  grad_clip_norm: 0.1
+  save_interval: 10
+  output_dir: "outputs/contrastive_projection"

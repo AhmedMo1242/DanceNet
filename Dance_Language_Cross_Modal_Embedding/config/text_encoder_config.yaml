@@ -1,0 +1,39 @@
+# Configuration file for text encoder model training and processing
+
+# Data configuration
+data:
+  train_path: "data/train.npy"            # Path to training data NPY file
+  val_path: "data/val.npy"                # Path to validation data NPY file
+  test_path: "data/test.npy"              # Path to test data NPY file
+  output_dir: "data/processed"            # Directory to save processed files and models
+  batch_size: 32                          # Batch size for training
+  num_workers: 4                          # Number of worker processes for data loading
+  text_index: 3                           # Index of text data in each item
+  text_subindex: 0                        # Subindex for nested text data
+  embedding_index: 1                      # Index of embedding in each item
+
+# Model configuration
+model:
+  bert_model_name: "bert-base-uncased"    # Pre-trained BERT model to use
+  freeze_bert: true                       # Whether to freeze BERT parameters
+  output_dim: 256                         # Dimension of output embeddings
+
+# Training configuration
+training:
+  num_epochs: 30                          # Maximum number of training epochs
+  learning_rate: 0.001                    # Initial learning rate
+  weight_decay: 0.01                      # Weight decay for AdamW optimizer
+  patience: 5                             # Patience for early stopping
+  cosine_weight: 0.5                      # Weight for cosine similarity in loss function
+  clip_grad_norm: 1.0                     # Maximum norm for gradient clipping
+  scheduler: "cosine"                     # Learning rate scheduler (options: "cosine", "plateau")
+  scheduler_params:                       # Parameters for learning rate scheduler
+    T_0: 10                               # Number of iterations for first restart
+    T_mult: 1                             # Multiplier for T_0 at each restart
+    factor: 0.5                           # Factor to reduce learning rate for plateau scheduler
+    plateau_patience: 2                   # Patience for plateau scheduler
+
+# Processing configuration
+processing:
+  process_batch_size: 32                  # Batch size for processing datasets
+  embedding_dim: 256                      # Dimension of output embeddings from model

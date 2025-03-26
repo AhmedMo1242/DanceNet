@@ -1,0 +1,17 @@
+# Text to Dance Inference Configuration
+
+# Model paths
+model_paths:
+  text_encoder: "/path/to/text_encoder_best.pth"
+  projectors: "/path/to/final_projectors.pt"
+  decoder: "/path/to/best_decoder.pth"
+
+# Inference settings
+inference:
+  device: "cuda"  # use "cpu" if no GPU available
+  sequence_length: 50
+  
+# Output settings
+output:
+  save_dir: "/path/to/output"
+  save_format: "npy"  # npy or json

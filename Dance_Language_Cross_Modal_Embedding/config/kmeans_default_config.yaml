@@ -1,0 +1,51 @@
+# Data configuration
+data:
+  input_files:
+    - x.npy
+    - y.npy
+    - z.npy
+  output_dir: ./output
+  create_folders: true
+
+# Clustering configuration
+clustering:
+  method: kmeans
+  n_clusters: 3
+  random_state: 42
+  
+# Text descriptions for clusters
+cluster_descriptions:
+  0:  # First Cluster (Hip-centric, Full-body Rotations)
+    - "Dynamic hip swings"
+    - "Rhythmic torso undulations"
+    - "Whirling 360° spins"
+    - "Deep knee bends with flair"
+    - "Energetic body rotations"
+    - "hip_sway_spin"
+    - "twirl_crouch_flow"
+    - "dynamic_rotations"
+  1:  # Second Cluster (Partial Rotations, Locomotion)
+    - "Controlled half-turns"
+    - "Directional strides"
+    - "Subtle leg flicks"
+    - "Pivoting transitions"
+    - "Staccato footwork"
+    - "pivot_stroll"
+    - "partial_spin_stomp"
+    - "wandering_kick"
+  2:  # Third Cluster (Floor Proximity, Grounded Motions)
+    - "Low crouching sweeps"
+    - "Descending body plunges"
+    - "Ground-level weight shifts"
+    - "Push-up inspired dips"
+    - "Earthbound body folds"
+    - "floor_descent"
+    - "grounded_plunge"
+    - "crouch_wave"
+
+# Visualization configuration
+visualization:
+  create_plots: true
+  figsize: [12, 10]
+  dpi: 300
+  colors: ['#FF5733', '#33A8FF', '#33FF57']
