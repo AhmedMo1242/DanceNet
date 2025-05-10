@@ -2,11 +2,9 @@
 
 ## Project Overview
 
-I developed a pipeline that first uses a Variational Autoencoder (VAE) to learn a latent dimension for dance sequences, then applies a BERT-based model to align text embeddings with those dance representations via cosine similarity. Through contrastive learning, I refined both dance and text embeddings so they can reconstruct each other, effectively bridging choreography and natural language. 
+This project develops a pipeline that first uses a Variational Autoencoder (VAE) to learn a latent dimension for dance sequences, then applies a BERT-based model to align text embeddings with those dance representations via cosine similarity. Through contrastive learning, both dance and text embeddings are refined so they can reconstruct each other, effectively bridging choreography and natural language.
 
-This project represents my submission for Task 2 of the GSoC 2025 assessment under the HumanAI Foundation, supervised by Mariel Pettee (Lawrence Berkeley National Laboratory) and Ilya Vidrin (Northeastern University). 
-
-While this README provides a comprehensive overview of the approach and results, it intentionally remains high-level in some technical aspects. For a more thorough exploration of exteneded technical stuff, please refer to the complete technical report in the [Report](#report) section below.
+While this README provides a comprehensive overview of the approach and results, it intentionally remains high-level in some technical aspects. For a more thorough exploration of extended technical details, please refer to the complete technical report in the [Report](#report) section below.
 
 ## Table of Contents
 
@@ -806,8 +804,8 @@ To set up the project environment:
 
 1. **Clone the repository**
    ```bash
-    git clone https://github.com/ahmedmo1242/AI_Choreo_GSoC_2025_TestSubmission.git
-    cd AI_Choreo_GSoC_2025_TestSubmission/Dance_Language_Cross_Modal_Embedding
+    git clone https://github.com/ahmedmo1242/DanceNet.git
+    cd DanceNet/Dance_Language_Cross_Modal_Embedding
    ```
 
 2. **Install dependencies**
@@ -996,27 +994,27 @@ python inference/text_to_dance_inference.py --text "A dynamic spin" --config con
 
 During this project, I encountered several computational limitations that affected development:
 
-- **Kaggle Resource Limits**: Working with Kaggle's free tier restricted me to 30 GPU hours per week, which severely limited experimentation time. The runtime would often disconnect during long training sessions, requiring frequent restarts and checkpointing.
+- **Limited GPU Resources**: Working with free tier GPU services restricted training time, requiring frequent restarts and checkpointing.
 
-- **GPU Performance**: The Tesla P100 GPU provided by Kaggle, while capable, isn't optimal for training large language models and complex motion generation architectures simultaneously.
+- **GPU Performance**: The available GPUs, while capable, weren't optimal for training large language models and complex motion generation architectures simultaneously.
 
-- **Memory Constraints**: Training with larger batch sizes was often impossible due to the 12GB memory limit, forcing hyperparameter compromises that potentially affected model performance.
+- **Memory Constraints**: Training with larger batch sizes was often impossible due to memory limits, forcing hyperparameter compromises that potentially affected model performance.
 
 These computational constraints required careful optimization of training procedures and model architectures to fit within the available resources.
 
 ### Time and Scope Limitations
 
-Due to a relatively late start on the project (March 22nd), I had to make pragmatic choices about which approaches to pursue. Several promising directions had to be shelved:
+Several promising directions had to be shelved due to time constraints:
 
-- **Semi-supervised Classification**: I initially planned to implement a semi-supervised classification model instead of KMeans clustering for more precise semantic categorization, but time constraints led me to opt for the simpler unsupervised approach.
+- **Semi-supervised Classification**: An initial plan to implement a semi-supervised classification model instead of KMeans clustering for more precise semantic categorization had to be simplified to an unsupervised approach.
 
-- **Advanced VAE Architectures**: A more sophisticated 2D-CNN VAE architecture that could separately capture temporal features and per-frame spatial features (as in my previous work awaiting publication) would likely have improved motion quality.
+- **Advanced VAE Architectures**: A more sophisticated 2D-CNN VAE architecture that could separately capture temporal features and per-frame spatial features would likely have improved motion quality.
 
-- **Contrastive Learning Variants**: I wanted to explore multiple contrastive learning approaches (SimCLR, MoCo, CLIP) to identify the optimal cross-modal alignment strategy.
+- **Contrastive Learning Variants**: Multiple contrastive learning approaches (SimCLR, MoCo, CLIP) could have been explored to identify the optimal cross-modal alignment strategy.
 
 - **Model Complexity Scaling**: Each component could have benefited from increased complexity and parameter counts, but training time limitations forced more compact designs.
 
-- **Larger Language Models**: Using more powerful language models beyond BERT (which has only 440M parameters) could have improved text understanding and generation capabilities.
+- **Larger Language Models**: Using more powerful language models beyond BERT could have improved text understanding and generation capabilities.
 
 - **Encoder-Decoder LLMs**: Replacing BERT with a full encoder-decoder architecture would have enabled better text sequence generation, especially for more detailed dance descriptions.
 
@@ -1028,4 +1026,4 @@ The complete technical report for this project is available as a PDF in IEEE for
 
 **[Dance-Language Cross-Modal Embedding: Bridging Movement and Description Through Latent Space Alignment](assets/report/Dance_Language_Cross_Modal_Embedding__Bridging_Movement_and_Description_Through_Latent_Space_Alignment.pdf)**
 
-This report follows IEEE conference paper formatting and provides detailed technical information about everything.
+This report provides detailed technical information about the entire system and methodology.

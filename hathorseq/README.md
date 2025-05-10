@@ -3,8 +3,6 @@
 
 **HathorSeq** is a comprehensive tool for labeling and segmenting motion capture (mocap) sequences. Named after Hathor, the Egyptian goddess of dance, this tool enables researchers to efficiently annotate mocap data with textual labels, segment sequences, and generate various visualization styles.
 
-This project represents my submission for **Task 1 of the GSoC 2025 assessment** under the HumanAI Foundation, supervised by Mariel Pettee (Lawrence Berkeley National Laboratory) and Ilya Vidrin (Northeastern University).
-
 Inspired by the PirouNet paper's approach to dance movement analysis using Laban Movement Analysis (LMA), HathorSeq bridges the gap between motion capture data and textual descriptions by providing an intuitive interface for labeling and segmenting sequences that can later be used for machine learning tasks.
 
 ## Features
@@ -36,8 +34,8 @@ HathorSeq offers a powerful set of features for mocap data processing:
 Clone the repository and install the required dependencies:
 
 ```bash
-git clone https://github.com/ahmedmo1242/AI_Choreo_GSoC_2025_TestSubmission.git
-cd AI_Choreo_GSoC_2025_TestSubmission/hathorseq
+git clone https://github.com/ahmedmo1242/DanceNet.git
+cd DanceNet/hathorseq
 pip install -r requirements.txt
 ```
 
